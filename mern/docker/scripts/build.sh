@@ -12,16 +12,14 @@
 # <new> <local>: will build the image from scratch with local settings ------- #
 # <   > <     >: will build the image for local settings --------------------- #
 # ---------------------------------------------------------------------------- #
-CODE_DIR="./code"
 DOCKER_DIR="/Users/anthony/Documents/Personal/Projects/2017/docker/docker/mern"
-ENV_VAL="development" # static for the time being
-ARGS_FILE_PATH="/Users/anthony/Documents/Personal/Projects/2017/docker/docker/mern/docker/args.list"
+ARGS_FILE_PATH="../args.dev.list"
 docker stop $(docker ps -a -q)
 # docker rm $(docker ps -a -q)
 
 # docker build --build-arg NODE_ENV_VAR=ENV_VAL --build-arg CODE_DIR=$CODE_DIR -t anthonyscinocco/mern:dev "$DOCKER_DIR"
 
-docker build $(cat ../arg.dev.list) -t anthonyscinocco/mern:dev "$DOCKER_DIR"
+docker build --build-arg NODE_ENV_VAR=development --build-arg CODE_DIR="./code" -t anthonyscinocco/mern:dev "$DOCKER_DIR"
 
 
 # -------------------------------- #

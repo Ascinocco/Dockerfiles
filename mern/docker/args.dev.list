@@ -1,2 +1,2 @@
---build-arg NODE_ENV_VAR="development"
---build-arg CODE_DIR="./code"
+--build-arg NODE_ENV_VAR=development
+--build-arg CODE_DIR=./code
