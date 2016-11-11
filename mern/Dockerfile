@@ -6,23 +6,23 @@ ARG NODE_ENV_VAR
 ARG CODE_DIR
 
 # run updates and upgrades
-RUN apt-get update -y && apt-get upgrade -y
-
-# install curl and git
-RUN apt-get install -y curl && apt-get install -y git
-
-# install node and npm
-RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && \
-    bash nodesource_setup.sh && apt-get install -y nodejs && \
-    apt-get install -y build-essential
-
-# install mern-cli to build the app
-RUN npm install -g mern-cli
+# RUN apt-get update -y && apt-get upgrade -y
+#
+# # install curl and git
+# RUN apt-get install -y curl && apt-get install -y git
+#
+# # install node and npm
+# RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && \
+#     bash nodesource_setup.sh && apt-get install -y nodejs && \
+#     apt-get install -y build-essential
+#
+# # install mern-cli to build the app
+# RUN npm install -g mern-cli
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-
-ADD $CODE_DIR /usr/src/app
+#
+# ADD . /usr/src/app
 
 # RUN mern init app
 # # WORKDIR /usr/src/app
