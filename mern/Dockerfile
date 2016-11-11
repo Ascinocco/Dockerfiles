@@ -22,14 +22,14 @@ RUN npm install -g mern-cli
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-ADD CODE_DIR /usr/src/app
+ADD $CODE_DIR /usr/src/app
 
 # RUN mern init app
 # # WORKDIR /usr/src/app
 # # RUN npm install
 # # COPY . /usr/src/app
 
-ENV NODE_ENV NODE_ENV_VAR
+ENV NODE_ENV $NODE_ENV_VAR
 ENV NODE_PORT 8000
 
 EXPOSE 8000

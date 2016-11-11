@@ -1,0 +1,2 @@
+--build-arg NODE_ENV_VAR="production"
+--build-arg CODE_DIR="./code"
