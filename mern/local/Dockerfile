@@ -1,5 +1,16 @@
-FROM node
-MAINTAINER jaga santagostino <kandros5591@gmail.com>
+FROM ubuntu:16.04
+MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.1
+
+# run updates and upgrades
+RUN apt-get update -y && apt-get upgrade -y
+
+# install curl and git
+RUN apt-get install -y curl && apt-get install -y git
+
+# install node and npm
+RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && \
+    bash nodesource_setup.sh && apt-get install -y nodejs && \
+    apt-get install -y build-essential
 
 RUN mkdir -p /usr/src
 WORKDIR /usr/src
