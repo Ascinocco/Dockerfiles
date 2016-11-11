@@ -18,6 +18,8 @@
 
 ### Deployement:
 1. All images deployed to AWS EC2
+2. Quay.io for CD/CI
+3. Dockerhub for storage
 
 ### Base Images:
 1. Base Image Apache: Ubuntu, Apache
@@ -28,7 +30,7 @@
 2. Base Image Nginx: Configures Ubuntu, Env variables, Nginx conf, permissions
 
 ### Child Dockerfiles:
-1. MERN Stack - Is its's own server
-2. Laravel - LAMP (PHP)
-3. Django - LNMP(Python)(nginx)
-4. Rails - LNMR (Ruby)(nginx)
+1. MERN
+2. LAMP
+3. LNMP
+4. LNMR
