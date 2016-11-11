@@ -13,13 +13,14 @@
 # <   > <     >: will build the image for local settings --------------------- #
 # ---------------------------------------------------------------------------- #
 DOCKER_DIR="/Users/anthony/Documents/Personal/Projects/2017/docker/docker/mern"
-ARGS_FILE_PATH="../args.dev.list"
+ARGS_FILE_PATH="./docker/args.dev.list"
 docker stop $(docker ps -a -q)
 # docker rm $(docker ps -a -q)
+DEV_ARGS='--build-arg NODE_ENV_VAR="development" --build-arg CODE_DIR="./code"'
 
 # docker build --build-arg NODE_ENV_VAR=ENV_VAL --build-arg CODE_DIR=$CODE_DIR -t anthonyscinocco/mern:dev "$DOCKER_DIR"
 
-docker build --build-arg NODE_ENV_VAR=development --build-arg CODE_DIR="./code" -t anthonyscinocco/mern:dev "$DOCKER_DIR"
+docker build $(echo $DEV_ARGS) -t anthonyscinocco/mern:dev "$DOCKER_DIR"
 
 
 # -------------------------------- #
