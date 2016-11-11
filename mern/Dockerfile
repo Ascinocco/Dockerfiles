@@ -1,4 +1,4 @@
-FROM anthonyscinocco/mern:dev
+FROM anthonyscinocco/mern:latest
 MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.1
 
 # grab arguments

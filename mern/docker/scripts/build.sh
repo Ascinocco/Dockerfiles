@@ -18,11 +18,12 @@ ARGS_FILE_PATH="./docker/args.dev.list"
 # docker stop $(docker ps -a -q)
 # docker rm $(docker ps -a -q)
 DEV_ARGS='--build-arg NODE_ENV_VAR="development"'
+PROD_ARGS='--build-arg NODE_ENV_VAR="development"'
 # docker build --build-arg NODE_ENV_VAR=ENV_VAL --build-arg CODE_DIR=$CODE_DIR -t anthonyscinocco/mern:dev "$DOCKER_DIR"
 
-docker build $(echo $DEV_ARGS) -t anthonyscinocco/mern:dev "$DOCKER_DIR"
+docker build $(echo $DEV_ARGS) -t anthonyscinocco/mern:latest "$DOCKER_DIR"
 docker run -d -v "$(echo $APP_PATH)":/usr/src/app \
-        -i -t anthonyscinocco/mern:dev /bin/bash
+        -i -t anthonyscinocco/mern:latest /bin/bash
 
 
 
