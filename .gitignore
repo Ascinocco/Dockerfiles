@@ -1,1 +1,12 @@
 .idea/
+.vscode/
+.DS_Store
+mern/app/node_modules/
+mern/app/npm-debug.log
+mern/app/dump.rdb
+mern/app/.idea/
+mern/app/.vscode/
+mern/app/.DS_Store
+mern/app/dist
+mern/app/coverage/
+mern/app/.nyc_output/
