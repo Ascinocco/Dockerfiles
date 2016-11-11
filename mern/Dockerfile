@@ -13,7 +13,8 @@ RUN apt-get install -y curl && apt-get install -y git
 # install node and npm
 RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && \
     bash nodesource_setup.sh && apt-get install -y nodejs && \
-    apt-get install -y build-essential && apt-get install -y python2.7
+    apt-get install -y build-essential && \
+    apt-get install -y python2.7 && apt-get install -y python-setuptools
 
 # install mern-cli to build the app
 RUN npm install -g mern-cli
