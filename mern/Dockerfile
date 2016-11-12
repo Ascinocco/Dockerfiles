@@ -1,8 +1,13 @@
 FROM anthonyscinocco/mern:latest
-MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.2
 
-# expose required ports
+MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.4
+
+# TODO: remove node port, open nginx port and forward node port to nginx
+# node port
 EXPOSE 8000
+
+# mongo port for mongotron
+EXPOSE 27017
 
 # grab arguments
 ARG NODE_ENV_VAR
@@ -30,4 +35,5 @@ WORKDIR /usr/src/app
 # set env variables
 ENV NODE_ENV $NODE_ENV_VAR
 
+# default to my start script
 CMD ["/bin/bash", "/usr/src/docker/scripts/start.sh"]

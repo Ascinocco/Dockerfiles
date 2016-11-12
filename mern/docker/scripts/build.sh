@@ -6,41 +6,41 @@
 # ---Builds the docker image--- #
 # ------November 11, 2016------ #
 #*******************************#
-# ---------------------------------------------------------------------------- #
-# Script Parameters: --------------------------------------------------------- #
-# Parameters: $new ----------------------------------------------------------- #
-# ---------------------------------------------------------------------------- #
 
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
+# Set variables
 APP_PATH="/Users/anthony/Documents/Personal/Projects/2017/docker/docker/mern"
 DOCKER_DIR="/Users/anthony/Documents/Personal/Projects/2017/docker/docker/mern"
-ARGS_FILE_PATH="./docker/args.dev.list"
 DEV_ARGS='--build-arg NODE_ENV_VAR="development"'
 PROD_ARGS='--build-arg NODE_ENV_VAR="production"'
 
-docker build $(echo $DEV_ARGS) -t anthonyscinocco/mern:latest "$DOCKER_DIR"
-docker run -d -v "$(echo $APP_PATH)":/usr/src \
-        -p 8000:8000 anthonyscinocco/mern:latest
+# stops and removes all containers to avoid port conflicts
+function stopAndRemoveContainers {
+  docker stop $(docker ps -a -q)
+  docker rm $(docker ps -a -q)
+}
 
-docker logs -f $(docker ps -a -q)
+function build {
+  docker build $(echo $DEV_ARGS) -t anthonyscinocco/mern:latest "$DOCKER_DIR"
+}
 
-# -------------------------------- #
-# buildLocal () ------------------ #
-# builds the container for the --- #
-# local environment -------------- #
-# Paramter: $new (boolean) ------- #
-# -------------------------------- #
-# function buildLocal {
-#   #statements
-# }
+# runs the containers
+function runContainer {
+  docker run -d -v "$(echo $APP_PATH)":/usr/src \
+          -p 80:8000 anthonyscinocco/mern:latest
+}
 
-# -------------------------------- #
-# run () ------------------------- #
-# handles control flow ----------- #
-# Paramter: $new (boolean) ------- #
-# --------- $env ----------------- #
-# -------------------------------- #
-# function run {
-#   #statements
-# }
+# attaches logging
+function attachLogging {
+  docker logs -f $(docker ps -a -q)
+}
+
+# runs the script
+function run {
+  stopAndRemoveContainers
+  build
+  runContainer
+  attachLogging
+}
+
+# entry point
+run
