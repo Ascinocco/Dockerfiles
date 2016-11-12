@@ -1,5 +1,5 @@
 FROM anthonyscinocco/mern:latest
-MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.2
+MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.3
 
 # expose required ports
 EXPOSE 8000
@@ -30,4 +30,5 @@ WORKDIR /usr/src/app
 # set env variables
 ENV NODE_ENV $NODE_ENV_VAR
 
+# default to my start script
 CMD ["/bin/bash", "/usr/src/docker/scripts/start.sh"]
