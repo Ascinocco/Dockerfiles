@@ -1,12 +1,9 @@
 FROM anthonyscinocco/mern:latest
 
-MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.4
+MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.5
 
-# mongo port for mongotron
-EXPOSE 27017
-
-# expose NGINX
-EXPOSE 80
+# expose node app and mongo
+EXPOSE 8000 27017
 
 # grab arguments
 ARG NODE_ENV_VAR
@@ -27,11 +24,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
     apt-get update -y && apt-get install -y mongodb-org && apt-get clean
 
 RUN apt-get install -y python2.7 && apt-get install -y python-setuptools && \
-    apt-get install -y nginx && apt-get clean
-
-# copy over nginx config
-COPY ./docker/nginx-conf/default /etc/nginx/sites-available/default
-COPY ./docker/nginx-conf/nginx.conf /etc/nginx/nginx.conf
+    apt-get clean
 
 # create app directory
 RUN mkdir -p /usr/src/app && mkdir -p /usr/data/db && mkdir -p /usr/mongo-logs && \

@@ -19,7 +19,7 @@ function stopAndRemoveContainers {
 # runs the containers
 function runContainer {
   docker run -d -v "$(echo $APP_PATH)":/usr/src \
-          -p 80:80 -p 27017:27017 anthonyscinocco/mern:latest
+          -p 80:8000 -p 27017:27017 anthonyscinocco/mern:latest
 }
 
 # attaches logging
