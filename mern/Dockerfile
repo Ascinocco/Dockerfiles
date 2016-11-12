@@ -20,10 +20,8 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
     echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list && \
     apt-get update -y && apt-get install -y mongodb-org && \
-    apt-get install -y python2.7 && apt-get install -y python-setuptools
-
-# install mern-cli to build the app
-# RUN npm install -g mern-cli
+    apt-get install -y python2.7 && apt-get install -y python-setuptools && \
+    apt-get install -y supervisor
 
 # create app directory
 RUN mkdir -p /usr/src/app && mkdir -p /usr/data/db
@@ -32,4 +30,4 @@ WORKDIR /usr/src/app
 # set env variables
 ENV NODE_ENV $NODE_ENV_VAR
 
-CMD ["/bin/bash", "/usr/src/docker/scripts/start.sh"]
+CMD ["/usr/bin/supervisord"]
