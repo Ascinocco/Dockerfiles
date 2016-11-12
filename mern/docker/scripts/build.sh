@@ -21,8 +21,9 @@ PROD_ARGS='--build-arg NODE_ENV_VAR="production"'
 
 docker build $(echo $DEV_ARGS) -t anthonyscinocco/mern:latest "$DOCKER_DIR"
 docker run -d -v "$(echo $APP_PATH)":/usr/src \
-        -p 8000:8000 anthonyscinocco/mern:latest \
-        docker logs -f $(docker ps -a -q)
+        -p 8000:8000 anthonyscinocco/mern:latest
+
+docker logs -f $(docker ps -a -q)
 
 # -------------------------------- #
 # buildLocal () ------------------ #

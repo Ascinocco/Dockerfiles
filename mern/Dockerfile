@@ -22,11 +22,9 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && \
     apt-get update -y && apt-get install -y mongodb-org && \
     apt-get install -y python2.7 && apt-get install -y python-setuptools
 
-# install mern-cli to build the app
-# RUN npm install -g mern-cli
-
 # create app directory
-RUN mkdir -p /usr/src/app && mkdir -p /usr/data/db
+RUN mkdir -p /usr/src/app && mkdir -p /usr/data/db && mkdir -p /usr/mongo-logs && \
+    touch /usr/mongo-logs/mongod.log
 WORKDIR /usr/src/app
 
 # set env variables
