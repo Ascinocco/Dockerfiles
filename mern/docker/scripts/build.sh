@@ -19,6 +19,7 @@ function stopAndRemoveContainers {
   docker rm $(docker ps -a -q)
 }
 
+# builds container
 function build {
   docker build $(echo $DEV_ARGS) -t anthonyscinocco/mern:latest "$DOCKER_DIR"
 }
