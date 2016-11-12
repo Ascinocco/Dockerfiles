@@ -1,5 +1,8 @@
-FROM ubuntu:14.04
+FROM anthonyscinocco/mern:latest
 MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.2
+
+# expose required ports
+EXPOSE 8000 80 443
 
 # grab arguments
 ARG NODE_ENV_VAR
@@ -26,6 +29,4 @@ WORKDIR /usr/src/app
 # set env variables
 ENV NODE_ENV $NODE_ENV_VAR
 
-# expose required ports
-EXPOSE 8000
 CMD ["npm", "start"]
