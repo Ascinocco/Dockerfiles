@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM anthonyscinocco/mern:latest
 MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.2
 
 # expose required ports
@@ -23,10 +23,10 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && \
     apt-get install -y python2.7 && apt-get install -y python-setuptools
 
 # install mern-cli to build the app
-RUN npm install -g mern-cli
+# RUN npm install -g mern-cli
 
 # create app directory
-RUN mkdir -p /usr/src/app && mkdir -p /usr/src/data/db
+RUN mkdir -p /usr/src/app && mkdir -p /usr/data/db
 WORKDIR /usr/src/app
 
 # set env variables

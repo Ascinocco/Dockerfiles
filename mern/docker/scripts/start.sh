@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-mongod --dbpath /usr/src/data/db
-npm start 
+mongod --dbpath /usr/data/db
+npm start

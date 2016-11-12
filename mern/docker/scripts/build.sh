@@ -11,8 +11,8 @@
 # Parameters: $new ----------------------------------------------------------- #
 # ---------------------------------------------------------------------------- #
 
-# docker stop $(docker ps -a -q)
-# docker rm $(docker ps -a -q)
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
 APP_PATH="/Users/anthony/Documents/Personal/Projects/2017/docker/docker/mern"
 DOCKER_DIR="/Users/anthony/Documents/Personal/Projects/2017/docker/docker/mern"
 ARGS_FILE_PATH="./docker/args.dev.list"
@@ -21,7 +21,8 @@ PROD_ARGS='--build-arg NODE_ENV_VAR="production"'
 
 docker build $(echo $DEV_ARGS) -t anthonyscinocco/mern:latest "$DOCKER_DIR"
 docker run -d -v "$(echo $APP_PATH)":/usr/src \
-        -p 8000:8000 anthonyscinocco/mern:latest
+        -p 8000:8000 anthonyscinocco/mern:latest \
+        docker logs -f $(docker ps -a -q)
 
 # -------------------------------- #
 # buildLocal () ------------------ #
