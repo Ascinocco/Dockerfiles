@@ -12,9 +12,10 @@
 # All processes expect the app should run in the background #
 # --------------------------------------------------------- #
 
-# TODO: Start Redis
-# TODO: Start NGINX
-
+# starts nginx
+function startNginx {
+  /usr/bin/nginx
+}
 # start mongo instance
 function startMongo {
   mongod --dbpath /usr/data/db --fork --logpath /usr/mongo-logs/mongod.log
