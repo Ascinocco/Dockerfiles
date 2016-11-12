@@ -2,7 +2,7 @@ FROM anthonyscinocco/mern:latest
 MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.2
 
 # expose required ports
-EXPOSE 8000 80 443
+EXPOSE 8000
 
 # grab arguments
 ARG NODE_ENV_VAR
