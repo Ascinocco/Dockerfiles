@@ -1,5 +1,5 @@
-FROM anthonyscinocco/mern:latest
-MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.1
+FROM ubuntu:14.04
+MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.2
 
 # grab arguments
 ARG NODE_ENV_VAR
