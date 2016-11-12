@@ -26,10 +26,10 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && \
 RUN npm install -g mern-cli
 
 # create app directory
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /usr/src/app && mkdir -p /usr/src/data/db
 WORKDIR /usr/src/app
 
 # set env variables
 ENV NODE_ENV $NODE_ENV_VAR
 
-CMD ["npm", "start"]
+CMD ["/bin/bash", "/usr/src/docker/scripts/start.sh"]
