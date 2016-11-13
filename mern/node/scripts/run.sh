@@ -8,7 +8,7 @@
 #*******************************#
 
 # path to app
-APP_PATH="$1"
+APP_PATH="/Users/anthony/Documents/Personal/Projects/2017/docker/docker/mern"
 
 function getAppPath {
   if [ -z "$1" ]; then
@@ -17,29 +17,33 @@ function getAppPath {
   fi
 }
 
-# # stops and removes all containers to avoid port conflicts
-# function stopAndRemoveContainers {
-#   docker stop $(docker ps -a -q)
-#   docker rm $(docker ps -a -q)
-# }
+# stops and removes all containers to avoid port conflicts
+function stopAndRemoveContainers {
+  docker stop mern-node
+  docker rm -f mern-node
+}
 
 # runs the containers
 function runContainer {
-  docker run -d -v "$(echo $APP_PATH)":/usr/src \
-          -p 80:8000 anthonyscinocco/mern-node:latest
+  docker run \
+          --name mern-node \
+          --link mern-mongo \
+          -v "$(echo $APP_PATH)":/usr/src \
+          -p 80:8000 \
+          anthonyscinocco/mern-node:latest
 }
 
-# attaches logging
-function attachLogging {
-  docker logs -f $(docker ps -f "name=anthonyscinocco/mern-node:latest")
-}
+# # attaches logging
+# function attachLogging {
+#   docker logs -f mern-node
+# }
 
 # runs the script
 function run {
   getAppPath "$1"
-  # stopAndRemoveContainers
+  stopAndRemoveContainers
   runContainer
-  attachLogging
+  # attachLogging
 }
 
 # entry point

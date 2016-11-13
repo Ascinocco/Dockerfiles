@@ -7,16 +7,17 @@
 # ----------November 12, 2016--------- #
 # ------------------------------------ #
 
-function installNodeModules {
-  npm install
-}
+# function installNodeModules {
+#   npm install
+# }
 
 function startApp {
-  npm start
+  # npm start
+  node server.js
 }
 
 function run {
-  installNodeModules
+  # installNodeModules
   startApp
 }
 

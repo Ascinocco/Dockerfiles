@@ -16,7 +16,8 @@ function stopAndRemoveContainers {
 }
 
 function build {
-  docker build $(echo $DEV_ARGS) -t anthonyscinocco/mern-node:latest "$DOCKER_DIR"
+  docker build $(echo $DEV_ARGS) \
+          -t anthonyscinocco/mern-node:latest "$DOCKER_DIR"
 }
 
 function run {

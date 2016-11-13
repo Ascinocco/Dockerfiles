@@ -1,4 +1,4 @@
-FROM anthonyscinocco/ubuntu-custom:14.04
+FROM anthonyscinocco/mern-mongo:latest
 MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 1
 
 EXPOSE 27017

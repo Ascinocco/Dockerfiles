@@ -8,7 +8,7 @@
 # ------------------------------------ #
 
 function run {
-  mongod --dbpath /usr/data/db --fork --logpath /usr/mongo-logs/mongod.log
+  mongod --dbpath /usr/data/db --logpath /usr/mongo-logs/mongod.log
 }
 
 run
