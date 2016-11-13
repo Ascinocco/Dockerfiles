@@ -17,6 +17,11 @@ function startMongo {
   mongod --dbpath /usr/data/db --fork --logpath /usr/mongo-logs/mongod.log
 }
 
+# install node modules
+function installNodeModules {
+  npm install
+}
+
 # start the MERN app
 function startApp {
   npm start
@@ -25,6 +30,7 @@ function startApp {
 # runs functions that contain commands
 function run {
   startMongo
+  installNodeModules
   startApp
 }
 

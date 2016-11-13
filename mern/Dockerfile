@@ -1,4 +1,4 @@
-FROM anthonyscinocco/mern:latest
+FROM ubuntu:14.04
 
 MAINTAINER Anthony Scinocco <scinocco.a@gmail.com> Version 0.5
 
