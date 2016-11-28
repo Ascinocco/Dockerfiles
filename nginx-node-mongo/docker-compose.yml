@@ -1,0 +1,34 @@
+version: "2"
+services:
+  nginx:
+    image: "jwilder/nginx-proxy"
+    container_name: "nginx"
+    depends_on:
+      - "node"
+      - "mongo"
+    ports:
+      - "80:80"
+      # - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      # - ~/certs:/etc/nginx/certs "~/certs" needs to be created on host to store SSL certificates (if necessary)
+  node:
+    image: "anthonyscinocco/node:latest"
+    container_name: "node"
+    links:
+      - "mongo"
+    depends_on:
+      - "mongo"
+    ports:
+      - "8000:8000"
+    environment:
+      - VIRTUAL_HOST="localhost"
+    volumes:
+      - "../example-node-app:/usr/src/app"
+    command: "npm start"
+  mongo:
+    image: "anthonyscinocco/mongo:latest"
+    container_name: "mongo"
+    ports:
+      - "27017:27017"
+    command: "mongod --dbpath /usr/mongo/data/db --logpath /usr/mongo/logs/mongod.log"
