@@ -1,0 +1,19 @@
+version: "2"
+services:
+  node:
+    image: "anthonyscinocco/mern-node:latest"
+    links:
+      - "mongo"
+    depends_on:
+      - "mongo"
+    ports:
+      - "80:8000"
+    volumes:
+      - "./app:/usr/src/app"
+    command:
+      - "npm install && npm start"
+  mongo:
+    image: "anthonyscinocco/mern-mongo:latest"
+    ports:
+      - "27017:27017"
+    command: "mongod --dbpath /usr/mongo/data/db --logpath /usr/mongo/logs/mongod.log"
