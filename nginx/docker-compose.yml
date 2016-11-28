@@ -1,0 +1,9 @@
+version: "2"
+services:
+  nginx:
+    image: "anthonyscinocco/nginx:latest"
+    container_name: "nginx"
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "./usr/nginx/scripts/start.sh"
