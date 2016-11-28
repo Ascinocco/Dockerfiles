@@ -7,7 +7,7 @@
 # --------November 11, 2016--------- #
 #************************************#
 
-DOCKER_DIR="/Users/anthony/Documents/Personal/Projects/2017/docker/docker/mern/ubuntu"
+DOCKER_DIR="$(pwd)"
 
 function stopAndRemoveContainers {
   docker stop $(docker ps -a -q)
