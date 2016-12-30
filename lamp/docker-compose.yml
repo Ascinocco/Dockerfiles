@@ -1,16 +1,16 @@
 version: "2"
 services:
-  silex:
+  web:
     image: "php:7.0-apache"
-    container_name: "silex"
+    container_name: "webserver"
     links:
       - "mysql"
     depends_on:
       - "mysql"
     ports:
       - "80:80"
-    volumes:
-      - "./app:/var/www/html/"
-    command: "apache2ctl start"
   mysql:
-    image:
+    image: "mysql:5.7.16"
+    container_name: "mysql"
+    ports:
+      - "3306:3306"
