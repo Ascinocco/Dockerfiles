@@ -9,6 +9,7 @@ services:
       - "mysql"
     volumes:
       - "./silex:/var/www"
+      - "./apache/:/etc/apache2/sites-available"
     ports:
       - "80:80"
       - "443:443"
