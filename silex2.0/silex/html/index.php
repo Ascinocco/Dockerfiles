@@ -7,10 +7,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 $app = new Silex\Application();
 
+// register services
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
   'twig.path' => __DIR__.'/assets/pages',
 ));
 
+$app->register(new Silex\Provider\ServiceControllerServiceProvider());
+
+
+// routes
 $app->get('/', function(){
   return 'hello';
 });
