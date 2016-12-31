@@ -17,34 +17,37 @@ $app->get('fml', function(){
 
 // error handling
 $app->error(function (\Exception $e, Request $req, $code) use ($app){
-  switch ($code){
-    case 404:
-        $message = "The page you requested could not be found.";
-        $error_details = array(
-            "code"    => "$code",
-            "message" => "$message",
-            "error"   => "$e"
-          );
-        break;
-    case 500:
-        $message = "An error has occured on the server. Please try again.";
-        $error_details = array(
-            "code"    => "$code",
-            "message" => "$message",
-            "error"   => "$e"
-          );
-        break;
-    default:
-        $message = "Uh oh, something went wrong... Please try again.";
-        $error_details = array(
-            "code"    => "$code",
-            "message" => "$message",
-            "error"   => "$e"
-          );
-        break;
-  }
 
-  return new Response($error_details);
+  return new Response("pls");
+
+  // switch ($code){
+  //   case 404:
+  //       $message = "The page you requested could not be found.";
+  //       $error_details = array(
+  //           "code"    => "$code",
+  //           "message" => "$message",
+  //           "error"   => "$e"
+  //         );
+  //       break;
+  //   case 500:
+  //       $message = "An error has occured on the server. Please try again.";
+  //       $error_details = array(
+  //           "code"    => "$code",
+  //           "message" => "$message",
+  //           "error"   => "$e"
+  //         );
+  //       break;
+  //   default:
+  //       $message = "Uh oh, something went wrong... Please try again.";
+  //       $error_details = array(
+  //           "code"    => "$code",
+  //           "message" => "$message",
+  //           "error"   => "$e"
+  //         );
+  //       break;
+  // }
+  // 
+  // return new Response($error_details);
 });
 
 $app['debug'] = true;
