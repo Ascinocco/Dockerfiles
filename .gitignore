@@ -6,3 +6,4 @@ node_modules
 /silex2.0/mysql/data/*
 /silex2.0/silex/vendor/*
 /symfony/mysql/data/*
+/laravel/mysql/data/*
