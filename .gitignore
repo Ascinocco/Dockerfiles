@@ -2,3 +2,6 @@
 .vscode/
 .DS_Store
 node_modules
+/lamp/mysql/data/*
+/silex2.0/mysql/data*
+/silex2.0/silex/vendor/*
